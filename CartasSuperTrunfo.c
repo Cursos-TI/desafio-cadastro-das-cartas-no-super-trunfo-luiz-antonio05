@@ -23,7 +23,11 @@
 
 #include <stdio.h>
 
+#define MAX_NOME 50
+
 struct Carta {
+    char estado;
+    char nome_da_cidade[MAX_NOME];
     char codigo[4];  // Código da cidade (string curta de até 3 caracteres + terminador '\0')
     unsigned long int populacao;   // Número de habitantes
     float area;      // Área da cidade
@@ -39,6 +43,14 @@ int main() {
 
     // Cadastro da primeira carta
     printf("\nCadastro da primeira carta:\n");
+
+    printf("Estado: ");
+    scanf("%c", &carta1.estado);
+    getchar();
+
+    printf("Nome da cidade: ");
+    scanf(" %49[^\n]", carta1.nome_da_cidade); // O formato %49[^\n] é um especificador especial do scanf() para ler strings q contêm espaços
+    getchar();
 
     printf("Código da cidade: ");
     scanf(" %3s", carta1.codigo);  // O espaço antes de %3s evita problemas com buffer
@@ -62,6 +74,14 @@ int main() {
 
     // Cadastro da segunda carta
     printf("\nCadastro da segunda carta:\n");
+
+    printf("Estado: ");
+    scanf("%c", &carta2.estado);
+    getchar();
+
+    printf("Nome da cidade: ");
+    scanf(" %49[^\n]", carta2.nome_da_cidade);
+    getchar();
 
     printf("Código da cidade: ");
     scanf(" %3s", carta2.codigo);
@@ -98,23 +118,27 @@ int main() {
     printf("\nCartas Cadastradas:\n");
 
     printf("\nCarta 1\n");
+    printf("Estado: %c\n", carta1.estado);
+    printf("Nome da cidade: %s\n", carta1.nome_da_cidade);
     printf("Código: %s\n", carta1.codigo);
     printf("População: %lu\n", carta1.populacao);
     printf("Área: %.2f km² \n", carta1.area);
     printf("PIB: %.2f bilhoes de reais\n", carta1.pib);
     printf("Pontos turísticos: %d\n", carta1.pontos_turisticos);
-    printf("Densidade Populacional: %2.f hab/km²\n", carta1.densidade_populacional);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidade_populacional);
     printf("PIB per capita: %.2f$ reais\n", carta1.pib_per_capita);
     printf("Super Poder: %.2f\n", carta1.super_poder);
 
 
     printf("\nCarta 2\n");
+    printf("Estado: %c\n", carta2.estado);
+    printf("Nome da cidade: %s\n", carta2.nome_da_cidade);
     printf("Código: %s\n", carta2.codigo);
     printf("População: %lu\n", carta2.populacao);
     printf("Área: %.2f km² \n", carta2.area);
     printf("PIB: %.2f bilhoes de reais\n", carta2.pib);
     printf("Pontos turísticos: %d\n", carta2.pontos_turisticos);
-    printf("Densidade Populacional: %2.f hab/km²\n", carta2.densidade_populacional);
+    printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidade_populacional);
     printf("PIB per capita: %.2f$ reais\n", carta2.pib_per_capita);
     printf("Super Poder: %.2f\n", carta2.super_poder);
 

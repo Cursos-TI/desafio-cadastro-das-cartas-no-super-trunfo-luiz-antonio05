@@ -144,16 +144,19 @@ int main() {
 
     // Comparar cartas
 
-    printf("\nComparação das cartas:\n");
-    printf("População: Carta %d venceu\n", carta1.populacao > carta2.populacao ? 1 : (carta1.populacao < carta2.populacao ? 2 : 0));
-    printf("Área: Carta %d venceu\n", carta1.area > carta2.area ? 1 : 2);
-    printf("PIB: Carta %d venceu\n", carta1.pib > carta2.pib ? 1 : 2);
-    printf("Pontos turísticos: Carta %d venceu\n", carta1.pontos_turisticos > carta2.pontos_turisticos ? 1 : 2);
-    printf("Densidade Populacional: Carta %d venceu\n", carta1.densidade_populacional < carta2.densidade_populacional ? 1 : 2);
-    printf("PIB per capita: Carta %d venceu\n", carta1.pib_per_capita > carta2.pib_per_capita ? 1 : 2);
-    printf("Super Poder: Carta %d venceu\n", carta1.super_poder > carta2.super_poder ? 1 : 2);
+    printf("\nComparação das cartas(Atributo: População):\n\n");
 
-    printf("\nCarta %d venceu!\n", carta1.super_poder > carta2.super_poder ? 1 : 2);
+    //Lembre de sempre modificar o especificador de formato para cada atributo que for comparar
+    printf("Carta 1 - %s (%c): %lu\n", carta1.nome_da_cidade, carta1.estado, carta1.populacao);
+    printf("Carta 2 - %s (%c): %lu\n", carta2.nome_da_cidade, carta2.estado, carta2.populacao);
+
+    if (carta1.populacao == carta2.populacao){
+       printf("Resultado: empate!\n"); 
+    } else if (carta1.populacao > carta2.populacao){
+        printf("\nResultado: Carta 1 (%s) venceu!\n", carta1.nome_da_cidade);
+    } else{
+        printf("\nResultado: Carta 2 (%s) venceu!\n", carta2.nome_da_cidade);
+    }
 
     return 0;
 }
